@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="#{title.application}"></title>
+        <meta charset="UTF-8"/>
+        
+        <link rel="stylesheet" th:href="@{/resources/css/bootstrap-theme.css}"></link>
+        <link rel="stylesheet" th:href="@{/resources/css/bootstrap-theme.min.css}"></link>
+        <link rel="stylesheet" th:href="@{/resources/css/bootstrap.css}"></link>
+        <link rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}"></link>
+        
+    </head>
+    <body>
+        <div>
+            <p th:text="${hello}" class="lead"></p>
+            
+             <input type="submit" class="btn btn-danger " 
+                           th:value="Listar" placeholder="Nome"/>
+        </div>
+    </body>
+</html>
