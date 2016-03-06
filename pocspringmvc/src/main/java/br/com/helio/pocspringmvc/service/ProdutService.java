@@ -26,4 +26,8 @@ public class ProdutService {
     public Produto findByCodigo(String codigo) {
         return produtoRepository.findOne(codigo);
     }
+
+    public void delete(Produto produto) {
+        produtoRepository.delete(produto);
+    }
 }

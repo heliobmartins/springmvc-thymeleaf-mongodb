@@ -32,7 +32,7 @@ public class ProdutoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("produtos", produtService.findAll());
         modelAndView.setViewName("produto/lista");
-        
+
         return modelAndView;
     }
 
@@ -41,14 +41,14 @@ public class ProdutoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("produto", new Produto());
         modelAndView.setViewName("produto/add");
-        
+
         return modelAndView;
     }
 
     @RequestMapping(value = "/salvar", method = RequestMethod.POST)
     public String salvar(@ModelAttribute Produto produto) {
         produtService.salvar(produto);
-        
+
         return "redirect:/produto/lista";
     }
 
@@ -58,5 +58,11 @@ public class ProdutoController {
         modelAndView.addObject("produto", produtService.findByCodigo(codigo));
         modelAndView.setViewName("produto/add");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/remover", method = RequestMethod.GET)
+    public String remover(@RequestParam("codigo") String codigo) {
+        produtService.delete(produtService.findByCodigo(codigo));
+        return "redirect:/produto/lista";
     }
 }

@@ -23,7 +23,8 @@
                     <td th:text="${produto.preco}"></td>
                     <td><a style="cursor: pointer;" th:text="#{editar}" 
                            th:href="@{/produto/editar(codigo=${produto.codigo})}"></a></td>
-                    <td><a style="cursor: pointer;" th:text="#{excluir}"></a></td>
+                    <td><a style="cursor: pointer;" th:text="#{excluir}"
+                           th:href="@{/produto/remover(codigo=${produto.codigo})}"></a></td>
                 </tr>
             </table>
             <div class="row">
