@@ -11,10 +11,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-pocspringmvcc/nb-configuration.xml
-pocspringmvcc/target
+pocspringmvc/nb-configuration.xml
+pocspringmvc/target
 
-pocspringmvcc/src/main/resources/rebel*.xml
-/pocspringmvcc/target/
+pocspringmvc/src/main/resources/rebel*.xml
+/pocspringmvc/target/
 /pocspringmvc/target/
 pocspringmvc/nb_jr_remoting.cfg
