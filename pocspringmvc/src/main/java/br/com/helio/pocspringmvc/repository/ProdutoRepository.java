@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  *
  * @author Helio
  */
-public interface ProdutoFactory extends MongoRepository<Produto, String> {
+public interface ProdutoRepository extends MongoRepository<Produto, String> {
 }
