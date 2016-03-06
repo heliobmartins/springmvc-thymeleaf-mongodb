@@ -9,16 +9,20 @@
     </head>
     <body>
         <div layout:fragment="content" class="row"><br/><br/><br/>
-            <form class="form-group" th:action="@{/produto/addProduto}" th:method="post">
+            <form class="form-group" th:action="@{/produto/salvar}" 
+                  th:method="post" th:object="${produto}" role="form">
+                
+                <input type="hidden" th:field="*{id}" />
+                
                 <div class="form-group col-xs-3">
                     <label th:text="#{produto.nome}"></label>
-                    <input type="text" class="form-control" name ="nomeProduto"
-                           th:placeholder="#{produto.nome}"></input>
+                    <input type="text" class="form-control" th:placeholder="#{produto.nome}"
+                           th:field="*{nome}"></input>
                     <br/>
                     <label th:text="#{produto.preco}"></label>
-                    <input type="number" step="0.01" class="form-control"  name ="precoProduto"
-                           th:placeholder="#{produto.preco}"></input><br/>
-                    <button type="submit" class="btn btn-success" th:text="#{cadastrar}"></button>
+                    <input type="number" step="0.01" class="form-control" th:placeholder="#{produto.preco}"
+                           th:field="*{preco}"></input><br/>
+                    <button type="submit" class="btn btn-success" th:text="#{salvar}"></button>
                 </div>
             </form>
         </div>

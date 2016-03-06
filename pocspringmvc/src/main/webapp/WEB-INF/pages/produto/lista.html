@@ -21,16 +21,14 @@
                 <tr th:each="(produto : ${produtos})">
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.preco}"></td>
-                    <td><a th:text="#{editar}"></a></td>
-                    <td><a th:text="#{excluir}"></a></td>
+                    <td><a style="cursor: pointer;" th:text="#{editar}" 
+                           th:href="@{/produto/editar(codigo=${produto.codigo})}"></a></td>
+                    <td><a style="cursor: pointer;" th:text="#{excluir}"></a></td>
                 </tr>
             </table>
             <div class="row">
-                <div class="col-md-1">
-                    <a class="btn btn-primary" th:text="#{cadastrar}" th:href="@{/produto/add}"></a>
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" class="btn btn-primary" th:value="#{editar}"></input>
+                <div class="col-md-1 col-md-offset-5">
+                    <a class="btn btn-primary btn-lg" th:text="#{cadastrar}" th:href="@{/produto/add}"></a>
                 </div>
             </div>
         </div>

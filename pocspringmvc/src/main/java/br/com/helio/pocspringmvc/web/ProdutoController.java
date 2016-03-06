@@ -10,6 +10,7 @@ import br.com.helio.pocspringmvc.service.ProdutService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,22 +32,31 @@ public class ProdutoController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("produtos", produtService.findAll());
         modelAndView.setViewName("produto/lista");
+        
         return modelAndView;
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
-        return "produto/add";
+    public ModelAndView add() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("produto", new Produto());
+        modelAndView.setViewName("produto/add");
+        
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/addProduto", method = RequestMethod.POST)
-    public String addProduto(@RequestParam("nomeProduto") String nomeProduto,
-            @RequestParam("precoProduto") Float precoProduto) {
-        Produto produto = new Produto();
-        produto.setNome(nomeProduto);
-        produto.setPreco(precoProduto);
+    @RequestMapping(value = "/salvar", method = RequestMethod.POST)
+    public String salvar(@ModelAttribute Produto produto) {
         produtService.salvar(produto);
         
         return "redirect:/produto/lista";
+    }
+
+    @RequestMapping(value = "/editar", method = RequestMethod.GET)
+    public ModelAndView editar(@RequestParam("codigo") String codigo) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("produto", produtService.findByCodigo(codigo));
+        modelAndView.setViewName("produto/add");
+        return modelAndView;
     }
 }

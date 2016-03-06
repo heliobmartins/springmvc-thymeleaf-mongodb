@@ -22,4 +22,8 @@ public class ProdutService {
     public void salvar(Produto produto){
         produtoRepository.save(produto);
     }
+
+    public Produto findByCodigo(String codigo) {
+        return produtoRepository.findOne(codigo);
+    }
 }

@@ -13,7 +13,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Produto")
 public class Produto {
     @Id
-    private @Getter @Setter ObjectId Id;
+    private @Getter @Setter ObjectId id;
     private @Getter @Setter String nome;
     private @Getter @Setter Float preco;
+    
+    public Produto(){
+        this.id = ObjectId.get();
+    }
+    
+    public String getCodigo(){
+        return this.id.toString();
+    }
 }
